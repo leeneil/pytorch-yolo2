@@ -8,6 +8,9 @@ from utils import *
 
 def build_targets(pred_boxes, target, anchors, num_anchors, num_classes, nH, nW, noobject_scale, object_scale, sil_thresh, seen):
     nB = target.size(0)
+    print("target.size", target.size())
+    nD = 1024 # target.size(1)/5
+    print("nD", nD)
     nA = num_anchors
     nC = num_classes
     anchor_step = len(anchors)/num_anchors
@@ -26,7 +29,7 @@ def build_targets(pred_boxes, target, anchors, num_anchors, num_classes, nH, nW,
     for b in xrange(nB):
         cur_pred_boxes = pred_boxes[b*nAnchors:(b+1)*nAnchors].t()
         cur_ious = torch.zeros(nAnchors)
-        for t in xrange(50):
+        for t in xrange(nD):
             if target[b][t*5+1] == 0:
                 break
             gx = target[b][t*5+1]*nW
@@ -50,7 +53,7 @@ def build_targets(pred_boxes, target, anchors, num_anchors, num_classes, nH, nW,
     nGT = 0
     nCorrect = 0
     for b in xrange(nB):
-        for t in xrange(50):
+        for t in xrange(nD):
             if target[b][t*5+1] == 0:
                 break
             nGT = nGT + 1
