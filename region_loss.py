@@ -8,9 +8,9 @@ from utils import *
 
 def build_targets(pred_boxes, target, anchors, num_anchors, num_classes, nH, nW, noobject_scale, object_scale, sil_thresh, seen):
     nB = target.size(0)
-    print("target.size", target.size())
+    #print("target.size", target.size())
     nD = 1024 # target.size(1)/5
-    print("nD", nD)
+    #print("nD", nD)
     nA = num_anchors
     nC = num_classes
     anchor_step = len(anchors)/num_anchors
