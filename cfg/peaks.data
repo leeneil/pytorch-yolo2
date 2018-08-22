@@ -1,0 +1,7 @@
+classes= 1
+train  = /reg/neh/home/liponan/data/cxic0415/cs231n/train.lst
+valid  = /reg/neh/home/liponan/data/cxic0415/cs231n/val_mini.lst
+names = /reg/neh/home/liponan/ai/darknet/data/peaks.names
+backup = backup
+eval = coco
+

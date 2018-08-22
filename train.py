@@ -18,7 +18,7 @@ import dataset
 import random
 import math
 import os
-from utils import *
+from darknet_utils import *
 from cfg import parse_cfg
 from region_loss import RegionLoss
 from darknet import Darknet
@@ -148,6 +148,8 @@ def train(epoch):
     t1 = time.time()
     avg_time = torch.zeros(9)
     for batch_idx, (data, target) in enumerate(train_loader):
+        print("data", data.size() )
+        print("target", target.size() )
         t2 = time.time()
         adjust_learning_rate(optimizer, processed_batches)
         processed_batches = processed_batches + 1
