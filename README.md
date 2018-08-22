@@ -1,3 +1,11 @@
+## Log 
+
+What I did to the original `pytorch-yolo2`
+
+- Max number of label boxes increased to 1024 from 50
+- `utils.py` renamed to `peakent_utils.py` to avoid name conflict
+
+
 ### pytorch-yolo2
 Convert https://pjreddie.com/darknet/yolo/ into pytorch. This repository is trying to achieve the following goals.
 - [x] implement RegionLoss, MaxPoolStride1, Reorg, GolbalAvgPool2d
